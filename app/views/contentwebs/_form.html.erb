@@ -1,0 +1,25 @@
+<%= form_with(model: contentweb) do |form| %>
+  <% if contentweb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contentweb.errors.count, "error") %> prohibited this contentweb from being saved:</h2>
+
+      <ul>
+        <% contentweb.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+         
+          
+      </ul>
+    </div>
+  <% end %>
+   <div class='bg-yellow-500 h-32 w-full'>
+              <%= form.label :header%><br>
+              <%= form.text_field :header %>
+          </div>
+       <div>
+           <%= form.hidden_field :user_id, :value => current_user.id %>
+          </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

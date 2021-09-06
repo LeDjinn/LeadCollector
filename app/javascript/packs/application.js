@@ -13,3 +13,4 @@ import "stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+// Support component names relative to this directory:
