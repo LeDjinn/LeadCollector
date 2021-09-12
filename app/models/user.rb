@@ -8,4 +8,7 @@ class User < ApplicationRecord
    has_many :comments
    has_many :answers, through: :comment
    has_many :words
+   has_many :facebookmodifs
+   has_many :webmodifs
+   has_many :googlemodifs
 end

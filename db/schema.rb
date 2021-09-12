@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_224600) do
+ActiveRecord::Schema.define(version: 2021_09_12_093932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,26 @@ ActiveRecord::Schema.define(version: 2021_08_27_224600) do
     t.index ["user_id"], name: "index_contentwebs_on_user_id"
   end
 
+  create_table "facebookmodifs", force: :cascade do |t|
+    t.text "change1"
+    t.text "change2"
+    t.text "change3"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_facebookmodifs_on_user_id"
+  end
+
+  create_table "googlemodifs", force: :cascade do |t|
+    t.text "change1"
+    t.text "change2"
+    t.text "change3"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_googlemodifs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,6 +81,16 @@ ActiveRecord::Schema.define(version: 2021_08_27_224600) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "webmodifs", force: :cascade do |t|
+    t.text "change1"
+    t.text "change2"
+    t.text "change3"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_webmodifs_on_user_id"
   end
 
   create_table "words", force: :cascade do |t|
@@ -76,5 +106,8 @@ ActiveRecord::Schema.define(version: 2021_08_27_224600) do
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "contentwebs", "users"
+  add_foreign_key "facebookmodifs", "users"
+  add_foreign_key "googlemodifs", "users"
+  add_foreign_key "webmodifs", "users"
   add_foreign_key "words", "users"
 end

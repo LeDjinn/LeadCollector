@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
-import Hello from './Hello'
+import AddAnswer from './AddAnswer'
+import { AddComment } from './AddComment'
 import Comment from './Comment'
+
+
 
 function App(){
 
@@ -9,8 +12,11 @@ function App(){
         return (
             <div className='text-5xl'>
                 Hello World
-              <Hello/>
-              <Comment/>
+            <AddComment/>
+            <Comment/>
+            
+          
+        
             </div>
 
         )

@@ -1,17 +1,46 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../components/App'
+import { ADD_COMMENT,COMMENTS } from '../queries/allQueries'
+
+
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+  HttpLink
+} from "@apollo/client";
+import AddAnswer from '../components/AddAnswer';
+
+
+
+
+
+const csrfToken = document
+  .querySelector('meta[name=csrf-token]')
+  .getAttribute('content')
+const client = new ApolloClient({
+  link: new HttpLink({
+    credentials: 'same-origin',
+    headers: {
+      'X-CSRF-Token': csrfToken,
+    },
+  }),
+  cache: new InMemoryCache(),
+})
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <App/>,
- 
+    <ApolloProvider client={client}>
+    <App  />,
+    
+  </ApolloProvider>,
     
     document.body.appendChild(document.createElement('div')),
   )

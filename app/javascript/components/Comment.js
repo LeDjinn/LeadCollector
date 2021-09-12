@@ -1,21 +1,33 @@
 import React from 'react'
+import Hello from './Hello';
+import {useQuery} from '@apollo/client'
+import  AddAnswer  from './AddAnswer';
+import {COMMENTS} from '../queries/allQueries'
 
-export default function Comment() {
-    const test ='testifying'
-    const data ={
-        comment: [
-            {
-              id: '1',
-              title: 'Active Rails',
-              userId: 2
-            },
-          ],
+
+
+function Comment(comId){
+  const { loading, error, data } = useQuery(COMMENTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return data.comments.map((comment) => (
+    <div key={comment.id}>
+      <p className="text-5xl">
+        {comment.body}
+        {comment.userId}
+      <AddAnswer comId={comment.id}/>
+      </p>
+        {comment.answers.map((answer)=>
+        <>
+        <div className='bg-red-400' key={answer.id}>{answer.body}</div>
+        
+        </>)
         }
     
-    return (
-        <div>
-          <div className="bg-red-300 h-24 w-24 rounded-xl">{test}</div>  
-          
-        </div>
-    )
+    </div>
+  ));
 }
+
+export default Comment
