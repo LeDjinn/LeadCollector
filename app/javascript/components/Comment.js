@@ -14,14 +14,14 @@ function Comment(comId){
 
   return data.comments.map((comment) => (
     <div key={comment.id}>
-      <p className="text-5xl">
+      <p className="text-3xl ">
         {comment.body}
         {comment.userId}
       <AddAnswer comId={comment.id}/>
       </p>
         {comment.answers.map((answer)=>
         <>
-        <div className='bg-red-400' key={answer.id}>{answer.body}</div>
+        <div className='bg-pink-200 text-xl rounded-md w-1/2' key={answer.id}>{answer.body}</div>
         
         </>)
         }

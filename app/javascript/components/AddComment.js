@@ -22,10 +22,10 @@ export const AddComment =()=> {
     
 
     return <form onSubmit={onSubmit}>
-        <div>
+        <div className="mx-5">
         
-            <input type ='text' name ="body" placeholder= "Votre Commentaire"/>
+            <input className="border-2 rounded-xl mt-2 mb-2 text-xl " type ='text' name ="body" placeholder= "Votre Commentaire"/>
         </div>
-        <button className='text-2xl text-indigo-700 font-bold'>AddComment</button>
+        <button className='text-2xl text-indigo-700 font-bold mt-2 mb-2'>AddComment</button>
     </form>
 }

@@ -11,4 +11,5 @@ class User < ApplicationRecord
    has_many :facebookmodifs
    has_many :webmodifs
    has_many :googlemodifs
+   has_many :appointements
 end

@@ -24,8 +24,8 @@ import{ADD_ANSWER} from '../queries/allQueries'
     return <form onSubmit={onSubmit}>
         <div>
         
-            <input type ='text' name ="body" placeholder= "Votre Réponse"/>
-            <input type ='text' name ='commentid' value={comId} />
+            <input className="border-2 rounded-xl mt-2 mb-2 text-xl " type ='text' name ="body" placeholder= "Votre Réponse"/>
+            <input className="border-2 rounded-xl mt-2 mb-2" type ='hidden' name ='commentid' value={comId} />
         </div>
         <button className='text-2xl text-black font-bold'>Add Answer</button>
     </form>
