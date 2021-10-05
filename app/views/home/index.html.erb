@@ -1,0 +1,16 @@
+<h1 class="text-5xl  ">This is the main page </h1>
+<%if current_user%>
+<h1 class="text-3xl bg-blue-500 text-white text-center py-2 px-4 font-bold  ">Welcome <%= current_user.email%></h1>
+<%else%>
+<a href='https://buy.stripe.com/test_dR65m37kd5uK0DK289' class="bg-yellow-400 text-center text-lg text-white font-bold">Commencer l'abbonnement </a>
+<%end%>
+
+<%@customer_list.each do |customer|%>
+  <ul>
+    <li><%=customer.email%></li>
+  </ul>
+<%end%>
+
+<%if  check_user_paid %>
+   <h1 class="text-3xl text-white text-center font-bold py-2 px-4 bg-purple-500 ">you paid</h1>
+ <%end%>

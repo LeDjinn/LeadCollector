@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   root to:'home#index'
 
+  resources :webhooks, only:[:create]
+
   scope controller: :home do
     
     get :about
