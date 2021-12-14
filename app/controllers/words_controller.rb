@@ -1,22 +1,30 @@
 class WordsController < ApplicationController
+  protect_from_forgery except: :index
+  before_action :get_current_user
   before_action :set_word, only: %i[ show edit update destroy ]
 
   # GET /words or /words.json
   def index
+    @user =current_user
     @words = Word.all
+    
   end
 
   # GET /words/1 or /words/1.json
   def show
+    test = Word.last
+    @post= test.content.body.to_html
+    render json: @post
   end
 
   # GET /words/new
   def new
-    @word = Word.new
+    @word= Word.new
   end
 
   # GET /words/1/edit
   def edit
+    
   end
 
   # POST /words or /words.json
@@ -49,6 +57,7 @@ class WordsController < ApplicationController
 
   # DELETE /words/1 or /words/1.json
   def destroy
+    @user = current_user
     @word.destroy
     respond_to do |format|
       format.html { redirect_to words_url, notice: "Word was successfully destroyed." }
@@ -61,9 +70,11 @@ class WordsController < ApplicationController
     def set_word
       @word = Word.find(params[:id])
     end
-
+    def get_current_user
+      @user=current_user
+    end
     # Only allow a list of trusted parameters through.
     def word_params
-      params.require(:word).permit(:title, :body, :user_id)
+      params.require(:word).permit(:title, :body, :content, :user_id)
     end
 end

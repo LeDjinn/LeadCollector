@@ -8,11 +8,14 @@ class ContentwebsController < ApplicationController
 
   # GET /contentwebs or /contentwebs.json
   def index
+    @user = current_user
     @contentwebs = Contentweb.all
   end
 
   # GET /contentwebs/1 or /contentwebs/1.json
   def show
+    @user = current_user
+    @contentweb  = @user.contentweb
   end
 
   # GET /contentwebs/new
@@ -70,6 +73,40 @@ class ContentwebsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contentweb_params
-      params.require(:contentweb).permit(:header, :user_id)
+      params.require(:contentweb).permit(:header,
+         :header2,
+         :header3,
+         :header4,
+         :contentmain,
+         :content2,
+         :content3,
+         :content4,
+         :content5,
+         :content6,
+         :user_id,
+         :nom_site,
+           :titre_hero,
+           :slogan,
+           :descrp_title_1,
+           :descrp_title_2,
+           :descrp_title_3,
+           :descrp_title_4,
+           :descrp_sub_title_1,
+           :descrp_sub_title_2,
+           :descrp_sub_title_3,
+           :descrp_sub_title_4,
+          :descrp_text_1,
+          :descrp_text_2,
+          :descrp_text_3,
+          :descrp_text_4,
+           :header5,
+           :header6,
+           :sub_header1,
+           :sub_header2,
+           :sub_header3,
+           :sub_header4,
+           :sub_header5,
+           :sub_header6)
+
     end
 end

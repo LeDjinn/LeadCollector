@@ -32,13 +32,14 @@ const client = new ApolloClient({
   }),
   cache: new InMemoryCache(),
 })
-
+const data = window.tokkens
+ 
 
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <ApolloProvider client={client}>
-    <App  />,
+    <App tokkens ={data} />,
     
   </ApolloProvider>,
     

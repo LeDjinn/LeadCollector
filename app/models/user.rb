@@ -14,6 +14,9 @@ class User < ApplicationRecord
    has_many :webmodifs
    has_many :googlemodifs
    has_many :appointements
+   has_many :tokkens
+   has_many :notifications
+   has_many :pages
 
    pay_customer
 

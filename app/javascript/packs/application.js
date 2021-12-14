@@ -14,6 +14,7 @@ require("alpinejs")
 
 
 
+
 import "stylesheets/application"
 
 Rails.start()
@@ -22,3 +23,6 @@ ActiveStorage.start()
 
 
 // Support component names relative to this directory:
+
+require("trix")
+require("@rails/actiontext")

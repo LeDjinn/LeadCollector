@@ -74,3 +74,6 @@ gem 'paddle_pay', '~> 0.1'
 
 # To use Receipts
 gem 'receipts', '~> 1.1'
+
+gem 'faraday'
+gem 'rack-cors'

@@ -1308,6 +1308,13 @@
   resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-6.1.4.tgz"
   integrity sha512-0LmSKJTuo2dL6BQ+9xxLnS9lbkyfz2mBGeBnQ2J7o9Bn0l0q+ZC6VuoZMZZXPvABI4QT7Nfknv5WhfKYL+boew==
 
+"@rails/actiontext@^6.1.4-1":
+  version "6.1.4-1"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.1.4-1.tgz#c75fbeeb7860c2f508150ad003c0c0d0c97c7584"
+  integrity sha512-dS7AdkJtSyuX2PXipCTNOKEg5G/ftwS+FmM5+8Zxbo35tgs08hfYFPh0muoj5eEkshwV67kEEV/iHgX8PMLh4w==
+  dependencies:
+    "@rails/activestorage" "^6.0.0"
+
 "@rails/activestorage@^6.0.0":
   version "6.1.4"
   resolved "https://registry.npmjs.org/@rails/activestorage/-/activestorage-6.1.4.tgz"
@@ -1948,6 +1955,13 @@ autoprefixer@^9.6.1:
     num2fraction "^1.2.2"
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
+
+axios@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.22.0.tgz#bf702c41fb50fbca4539589d839a077117b79b25"
+  integrity sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==
+  dependencies:
+    follow-redirects "^1.14.4"
 
 babel-loader@^8.2.2:
   version "8.2.2"
@@ -3960,6 +3974,11 @@ follow-redirects@^1.0.0:
   version "1.14.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.2.tgz"
   integrity sha512-yLR6WaE2lbF0x4K2qE2p9PEXKLDjUjnR/xmjS3wHAYxtlsI9MLLBJUZirAHKzUZDGLxje7w/cXR49WOUo4rbsA==
+
+follow-redirects@^1.14.4:
+  version "1.14.4"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
+  integrity sha512-zwGkiSXC1MUJG/qmeIFH2HBJx9u0V46QGUe3YR1fXG8bXQxq7fLj0RjLZQ5nubr9qNJUZrH+xUcwXEoXNpfS+g==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -8603,6 +8622,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.0.tgz"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+trix@^1.2.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-1.3.1.tgz#ccce8d9e72bf0fe70c8c019ff558c70266f8d857"
+  integrity sha512-BbH6mb6gk+AV4f2as38mP6Ucc1LE3OD6XxkZnAgPIduWXYtvg2mI3cZhIZSLqmMh9OITEpOBCCk88IVmyjU7bA==
 
 ts-invariant@^0.9.0:
   version "0.9.1"

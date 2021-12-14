@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_100343) do
+ActiveRecord::Schema.define(version: 2021_11_29_182238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "answers", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -56,6 +94,30 @@ ActiveRecord::Schema.define(version: 2021_09_17_100343) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nom_site"
+    t.string "titre_hero"
+    t.string "slogan"
+    t.string "descrp_title_1"
+    t.string "descrp_title_2"
+    t.string "descrp_title_3"
+    t.string "descrp_title_4"
+    t.string "descrp_sub_title_1"
+    t.string "descrp_sub_title_2"
+    t.string "descrp_sub_title_3"
+    t.string "descrp_sub_title_4"
+    t.text "descrp_text_1"
+    t.text "descrp_text_2"
+    t.text "descrp_text_3"
+    t.text "descrp_text_4"
+    t.string "header5"
+    t.string "header6"
+    t.string "sub_header1"
+    t.string "sub_header2"
+    t.string "sub_header3"
+    t.string "sub_header4"
+    t.string "sub_header5"
+    t.string "sub_header6"
+    t.text "content6"
     t.index ["user_id"], name: "index_contentwebs_on_user_id"
   end
 
@@ -77,6 +139,46 @@ ActiveRecord::Schema.define(version: 2021_09_17_100343) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_googlemodifs_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "answer_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "read"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_notifications_on_answer_id"
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.bigint "contentweb_id", null: false
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title1"
+    t.string "title2"
+    t.string "title3"
+    t.string "title4"
+    t.string "title5"
+    t.string "title6"
+    t.string "subtitle1"
+    t.string "subtitle2"
+    t.string "subtitle3"
+    t.string "subtitle4"
+    t.string "subtitle5"
+    t.string "subtitle6"
+    t.text "text1"
+    t.text "text2"
+    t.text "text3"
+    t.text "text4"
+    t.text "text5"
+    t.text "text6"
+    t.index ["contentweb_id"], name: "index_pages_on_contentweb_id"
+    t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
   create_table "pay_charges", force: :cascade do |t|
@@ -157,6 +259,15 @@ ActiveRecord::Schema.define(version: 2021_09_17_100343) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tokkens", force: :cascade do |t|
+    t.text "fbTokken"
+    t.text "gTokken"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tokkens_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -189,6 +300,8 @@ ActiveRecord::Schema.define(version: 2021_09_17_100343) do
     t.index ["user_id"], name: "index_words_on_user_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "comments"
   add_foreign_key "answers", "users"
   add_foreign_key "appointements", "users"
@@ -196,10 +309,16 @@ ActiveRecord::Schema.define(version: 2021_09_17_100343) do
   add_foreign_key "contentwebs", "users"
   add_foreign_key "facebookmodifs", "users"
   add_foreign_key "googlemodifs", "users"
+  add_foreign_key "notifications", "answers"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "pages", "contentwebs"
+  add_foreign_key "pages", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "tokkens", "users"
   add_foreign_key "webmodifs", "users"
   add_foreign_key "words", "users"
 end

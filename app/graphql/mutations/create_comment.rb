@@ -20,6 +20,7 @@ module Mutations
       user = current_user
       comment = user.comments.build(body: body)
       if comment.save
+        Notification.create(user_id: current_user.id, comment_id: comment.id, answer_id:1, read: false)
         {
           comment: comment,
           errors: []

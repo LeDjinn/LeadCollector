@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
  
+ 
+  resources :tokkens
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   post "/graphql", to: "graphql#execute"
-  resources :words
+ 
   resources :answers
   resources :comments
-  resources :contentwebs
-  devise_for :users
+  resources :contentwebs do
+    resources :pages 
+  end
+  devise_for :users 
+  resources :words
+  
+
+  resources :tokkens
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to:'home#index'
@@ -24,6 +32,10 @@ Rails.application.routes.draw do
     get :contact
     get :product
     get :dashboard
+    get :admin_dashboard
   end
-
+   scope controller: :admin do
+    get :index
+   end
+   resources :notifications
 end

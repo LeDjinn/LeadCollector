@@ -1,56 +1,31 @@
-import React from 'react'
-import AddAnswer from './AddAnswer'
-import { AddAppointement } from './AddAppointement'
-import { AddComment } from './AddComment'
-import { AddFacebookemodif } from './AddFacebookmodif'
-import { AddGooglemodif } from './AddGooglemodif'
-import { AddWebmodif } from './AddWebmodif'
-import AsideBar from './AsideBar'
-import Action from './Action'
+import React from 'react';
+import AddAnswer from './AddAnswer';
+import { AddAppointement } from './AddAppointement';
+import { AddComment } from './AddComment';
+import { AddFacebookemodif } from './AddFacebookmodif';
+import { AddGooglemodif } from './AddGooglemodif';
+import { AddWebmodif } from './AddWebmodif';
+import AsideBar from './AsideBar';
+import Action from './Action';
 
-import Comment from './Comment'
-import Communication from './Communication'
-import PannelClient from './PannelClient'
+import Comment from './Comment';
+import Communication from './Communication';
+import PannelClient from './PannelClient';
 
 
 
-function App(){
-    
-
-        
-   
-    
- 
-        return (
-  <>
-    <div className="flex  bg-yellow-300">
-         
+function App() {
+  //const obj = JSON.parse(tokkens.tokkens.body)
+  //const likes = obj.fan_count
+  return (
+    <>
+      <div className="flex h-full bg-gray-800">
       
-         <AsideBar/>
-         <div className="bg-red-400 w-full h-full  ">
+        <AsideBar />
+        <PannelClient />
+      </div>
+    </>
+  );
+}
 
-            <h1 className="text-2xl bg-gray-400 ">Big Section made of 3 component switchable</h1>
-           <PannelClient/>
-
-         </div>
-         <Action/>
-
-    </div>
-       
-            
-              
-                   
-        
-              
-
-   
-   
-
-
-         
-           </>
-        )
-    }
-
-
-export default App
+export default App;

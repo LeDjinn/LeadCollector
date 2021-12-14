@@ -11,9 +11,12 @@ class StaticController < ApplicationController
   end
 
   def dashboard
+    @users = User.all
     client = current_user
     @contentwebs = Contentweb.where(user: client)
     @comments = Comment.where(user: client)
+  
+    
     
   end
    
