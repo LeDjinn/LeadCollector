@@ -1,6 +1,9 @@
 {
   "name": "leadcollector",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@apollo/client": "^3.5.6",
     "@babel/preset-react": "^7.16.5",
